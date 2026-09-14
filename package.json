@@ -1,0 +1,23 @@
+{
+  "name": "prompt-optimizer-x2",
+  "version": "1.0.0",
+  "description": "Prompt Optimizer (Strategy X2)",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test:unit": "vitest run",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "preact": "10.19.3"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "2.7.0",
+    "@testing-library/preact": "3.2.3",
+    "jsdom": "23.0.1",
+    "vite": "5.0.10",
+    "vitest": "1.1.0"
+  }
+}
