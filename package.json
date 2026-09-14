@@ -1,0 +1,39 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "把**簡單需求**擴成**通用提示詞**或**提示詞鏈**。第一版：繁中對話介面；先用規則／模板擴寫（不強制外部模型 API）。",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:unit": "vitest run",
+    "test:e2e": "playwright test",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaoru0429/prompt-optimizer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/kaoru0429/prompt-optimizer/issues"
+  },
+  "homepage": "https://github.com/kaoru0429/prompt-optimizer#readme",
+  "dependencies": {
+    "preact": "^10.29.8"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@preact/preset-vite": "^2.10.6",
+    "playwright": "^1.63.0",
+    "vite": "^8.3.0",
+    "vitest": "^5.0.0"
+  }
+}
