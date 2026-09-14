@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const container = clone.querySelector('.artifact-container');
 
-    if (result.artifact.title && result.artifact.body) {
+    if (result.artifact.kind === 'single' || (result.artifact.title && result.artifact.body && !result.artifact.steps)) {
       // Single mode
       const singleTemplate = document.getElementById('single-artifact-template');
       const singleClone = singleTemplate.content.cloneNode(true);
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       container.appendChild(singleClone);
-    } else if (result.artifact.steps) {
+    } else if (result.artifact.kind === 'chain' || result.artifact.steps) {
       // Chain mode
       const chainTemplate = document.getElementById('chain-artifact-template');
       const chainClone = chainTemplate.content.cloneNode(true);
