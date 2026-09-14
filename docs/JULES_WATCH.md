@@ -17,3 +17,8 @@
 4. 更新派工對照，勿再催已刪 Session  
 
 介入：看卡在哪 → 下令解卡 → 必要時新 Session → **刪舊卡死** → 寫進 Issue。不用你去點 Jules 監工。
+
+## 大任務用提示詞鏈拆步
+- Jules App 支援 Prompt Chain（多步）。
+- REST API 尚無 `promptChain` 欄位 → 協調者改用「連續小 Session」或 `sendMessage` 當後續步。
+- `npm install` 等易卡步驟要拆開或禁止死等。
