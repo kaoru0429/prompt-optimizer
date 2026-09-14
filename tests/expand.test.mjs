@@ -73,4 +73,15 @@ test('expandPrompt - Chain Mode', async (t) => {
     assert.strictEqual(result.artifact.steps[0].name, '釐清受眾與調性');
     assert.ok(result.artifact.steps[0].prompt.includes('寫一篇貼文'));
   });
+
+  await t.test('should handle planning intent in chain mode', () => {
+    const result = expandPrompt('安排活動行程', 'chain');
+    assert.ok(result);
+    assert.strictEqual(result.explanation, '根據您的需求，我使用了「企劃與規劃」模板為您擴寫。');
+    assert.ok(result.artifact.steps);
+    assert.strictEqual(result.artifact.title, '企劃與規劃提示詞 (提示詞鏈)');
+    assert.strictEqual(result.artifact.steps.length, 3);
+    assert.strictEqual(result.artifact.steps[0].name, '盤點目標與資源');
+    assert.ok(result.artifact.steps[0].prompt.includes('安排活動行程'));
+  });
 });
