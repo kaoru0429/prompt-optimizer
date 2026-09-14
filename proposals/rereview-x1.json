@@ -1,0 +1,15 @@
+{
+  "reviewer": "claude-code",
+  "target": "X1",
+  "pr": 6,
+  "prior_pr": 3,
+  "verdict": "PASS",
+  "remaining_p0": [],
+  "remaining_p1": [
+    "classifier keywords (活動, 專案) still broad enough for occasional misclassification",
+    "per-step copy buttons lack dedicated aria-live status region",
+    "README file:// open instruction may fail for ES modules in Chrome; static-server path should be primary",
+    "redundant mode/kind guard conditions in templates and app.js (style only)"
+  ],
+  "summary": "PR #6 fixes all three prior P0 blockers with concrete evidence: templates emit an explicit kind discriminant consumed by app.js, the mode-handling branches in every template are exhaustive so expandPrompt can never yield an undefined artifact, and a planning-intent chain-mode test was added to tests/expand.test.mjs (13/13 passing per ground truth). All P1 items were substantively addressed (package.json/README, tightened-but-not-perfect classifier keywords, aria-live on the two main copy-status spans, and a CI workflow), leaving only minor polish items — narrower classifier precision, aria-live on per-step copy buttons, and a README caveat about opening index.html via file:// with ES modules. Acceptance criteria 1-5 all still hold with no regressions, so X1/PR#6 is ready to proceed to Grok adjudication against C2."
+}
