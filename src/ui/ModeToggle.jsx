@@ -2,9 +2,15 @@ import { h } from 'preact';
 
 export function ModeToggle({ currentMode, onToggle }) {
   return (
-    <div style={{ display: 'flex', gap: '5px', backgroundColor: '#e5e7eb', padding: '4px', borderRadius: '20px' }}>
+    <div
+      role="radiogroup"
+      aria-label="選擇模式"
+      style={{ display: 'flex', gap: '5px', backgroundColor: '#e5e7eb', padding: '4px', borderRadius: '20px' }}
+    >
       <button
         type="button"
+        role="radio"
+        aria-checked={currentMode === 'single'}
         onClick={() => onToggle('single')}
         style={{
           padding: '5px 15px',
@@ -21,6 +27,8 @@ export function ModeToggle({ currentMode, onToggle }) {
       </button>
       <button
         type="button"
+        role="radio"
+        aria-checked={currentMode === 'chain'}
         onClick={() => onToggle('chain')}
         style={{
           padding: '5px 15px',

@@ -3,5 +3,8 @@ import preact from '@preact/preset-vite';
 
 export default defineConfig({
   plugins: [preact()],
-  base: './'
+  base: './',
+  test: {
+    include: ['tests/unit/**/*.test.js']
+  }
 });

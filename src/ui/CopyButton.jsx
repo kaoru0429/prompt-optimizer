@@ -2,17 +2,33 @@ import { h } from 'preact';
 import { useState } from 'preact/hooks';
 
 export function CopyButton({ textToCopy }) {
-  const [copied, setCopied] = useState(false);
+  const [copyState, setCopyState] = useState('idle'); // 'idle' | 'copied' | 'error'
 
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(textToCopy);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      setCopyState('copied');
+      setTimeout(() => setCopyState('idle'), 2000);
     } catch (err) {
       console.error('Failed to copy', err);
+      setCopyState('error');
+      setTimeout(() => setCopyState('idle'), 3000);
     }
   };
+
+  let backgroundColor = '#f3f4f6';
+  let color = '#374151';
+  let text = '複製';
+
+  if (copyState === 'copied') {
+    backgroundColor = '#10b981';
+    color = 'white';
+    text = '已複製！';
+  } else if (copyState === 'error') {
+    backgroundColor = '#ef4444';
+    color = 'white';
+    text = '複製失敗，請手動複製';
+  }
 
   return (
     <button
@@ -21,15 +37,15 @@ export function CopyButton({ textToCopy }) {
       data-testid="copy-button"
       style={{
         padding: '5px 10px',
-        backgroundColor: copied ? '#10b981' : '#f3f4f6',
-        color: copied ? 'white' : '#374151',
+        backgroundColor,
+        color,
         border: '1px solid #d1d5db',
         borderRadius: '4px',
         cursor: 'pointer',
         fontSize: '0.85rem'
       }}
     >
-      {copied ? '已複製！' : '複製'}
+      {text}
     </button>
   );
 }

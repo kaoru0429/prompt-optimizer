@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import { useState } from 'preact/hooks';
+import { useState, useRef, useEffect } from 'preact/hooks';
 import { ChatWindow } from './ChatWindow.jsx';
 import { ModeToggle } from './ModeToggle.jsx';
 import { classify } from '../expand/classify.js';
@@ -8,6 +8,15 @@ export function App() {
   const [messages, setMessages] = useState([]);
   const [mode, setMode] = useState('single');
   const [inputValue, setInputValue] = useState('');
+  const messagesEndRef = useRef(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,6 +40,7 @@ export function App() {
 
       <div style={{ flex: 1, overflowY: 'auto', marginBottom: '20px', backgroundColor: 'white', borderRadius: '8px', padding: '20px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
         <ChatWindow messages={messages} />
+        <div ref={messagesEndRef} />
       </div>
 
       <form onSubmit={handleSubmit} style={{ display: 'flex', gap: '10px' }}>

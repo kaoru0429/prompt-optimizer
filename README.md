@@ -5,6 +5,16 @@
 - 入口說明：你只跟 Grok Bot 討論需求與驗收；開發走四家平台流程（見 `AGENTS.md`）。
 - 文件：`docs/GOAL.md`、`docs/BLUEPRINT.md`、`docs/plans/`。
 
+## 開發指令
+
+環境要求：Node `^22.12.0 || ^24.0.0 || >=26.0.0`
+
+- `npm ci` - 依賴乾淨安裝
+- `npm run dev` - 啟動 Vite 本地開發伺服器
+- `npm test` - 執行所有的單元與 E2E 測試
+- `npm run build` - 產生靜態檔案
+- `npm run preview` - 在本地預覽打包後的網站
+
 ## 第一版共識（已對齊）
 1. 對話式介面  
 2. 繁體中文  
