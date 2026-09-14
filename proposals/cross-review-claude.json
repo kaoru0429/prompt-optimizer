@@ -1,0 +1,31 @@
+{
+  "reviewer": "claude-code",
+  "reviewed_origin": "gpt-codex",
+  "candidates": [
+    "X1",
+    "X2"
+  ],
+  "finalist": "X1",
+  "pr": 3,
+  "suggestions": [
+    "Add title/body (or explicit mode discriminant) to chain-mode PromptArtifact instead of duck-typing on artifact.steps vs artifact.title",
+    "Guard template generators against unexpected mode values to avoid undefined artifact crashing app.js",
+    "Add planning-intent chain-mode test coverage",
+    "Add package.json/README with run and deploy instructions",
+    "Tighten classifyIntent keyword overlap (e.g. bare 寫 keyword) to reduce misclassification",
+    "Add aria-live to copy-status elements for accessibility",
+    "Add a CI workflow to run node --test on PRs"
+  ],
+  "p0": [
+    "Normalize/discriminate chain vs single PromptArtifact shape per Blueprint",
+    "Guard against undefined artifact when mode is unexpected",
+    "Add missing planning-intent chain-mode test"
+  ],
+  "p1": [
+    "Add package.json/README for run+deploy instructions",
+    "Tighten classifier keyword precision",
+    "Add aria-live to copy status UI",
+    "Add CI workflow for tests"
+  ],
+  "summary": "X1 (PR #3) is the stronger PLAN-001 candidate: it implements full copy functionality (single artifact, per-step, and copy-all) with a secure/insecure-context fallback, returns an ExpandResult shape that closely matches the Blueprint schema, ships a dependency-free node:test suite that actually runs and asserts on structure, and deploys as a zero-build static site suitable for GitHub Pages or local use. X2 (PR #5) fails acceptance items 1-2 outright because its App.jsx has no copy-to-clipboard mechanism at all, its expandPrompt() collapses the ExpandResult/PromptArtifact contract into a single opaque string with no explanation or structured steps, and its Vitest/Playwright test setup was never verified to install or run. X1's remaining issues are schema-consistency and robustness polish (chain artifacts lacking title/body, no guard for unexpected mode values, missing planning-intent chain test) rather than fundamental acceptance failures, making it the safer merge target with a short, well-scoped punch list."
+}
