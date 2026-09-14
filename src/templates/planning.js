@@ -1,6 +1,7 @@
 export function generatePlanning(userMessage, mode) {
-  if (mode === 'single') {
+  if (mode === 'single' || (mode !== 'chain')) {
     return {
+      kind: 'single',
       title: '企劃與規劃提示詞',
       body: `請扮演一位資深的專案經理與企劃專家。
 
@@ -21,6 +22,9 @@ ${userMessage}
     };
   } else if (mode === 'chain') {
     return {
+      kind: 'chain',
+      title: '企劃與規劃提示詞 (提示詞鏈)',
+      body: '此為分步驟執行的提示詞鏈，請參考下方步驟。',
       steps: [
         {
           name: '盤點目標與資源',
