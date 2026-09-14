@@ -1,0 +1,26 @@
+{
+  "origin": "claude-code",
+  "strategies": [
+    {
+      "id": "C1",
+      "name": "Vanilla Zero-Build + JSON Rule Templates + Node Unit Tests",
+      "summary": "Plain static HTML/CSS + browser ESM with no framework or build. Expand engine scores wishes against JSON templates with {{slot}} placeholders and returns ExpandResult; chain templates include steps[]. Tests import engine.js via Node node:test.",
+      "stack": "vanilla HTML/CSS/ESM, JSON templates, node:test, GitHub Pages static",
+      "differentiator": "Lowest dependency: zero-build, declarative JSON templates, Node-only tests (no browser runner)."
+    },
+    {
+      "id": "C2",
+      "name": "Preact + Vite + JS-Module Templates + Vitest & Playwright",
+      "summary": "Preact components with Vite build; templates are JS modules exporting build(userMessage)->PromptArtifact with real conditionals; classify/registry picks intent. Dual test layers: Vitest for engine structure, Playwright E2E for copy buttons and chain UI.",
+      "stack": "Preact, Vite, Vitest, Playwright, JS module templates",
+      "differentiator": "Framework + build + executable templates + real browser E2E covering copy/chain UX."
+    },
+    {
+      "id": "C3",
+      "name": "Lit Web Components + Zero-Build ESM + Custom Template DSL + Browser Test Runner",
+      "summary": "Lit custom elements via import map (CDN or vendored), zero local bundler. Templates are .tmpl files with {{slot}} and lightweight {{#if}} conditionals parsed by a small hand-rolled DSL. @web/test-runner exercises parser and shadow DOM in a real browser.",
+      "stack": "Lit, import maps, custom .tmpl DSL, @web/test-runner",
+      "differentiator": "Platform Web Components + bespoke declarative DSL (between flat JSON and full JS) + unified in-browser tests."
+    }
+  ]
+}
