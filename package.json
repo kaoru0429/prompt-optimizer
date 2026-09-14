@@ -1,0 +1,9 @@
+{
+  "name": "prompt-optimizer-c1",
+  "version": "1.0.0",
+  "description": "PLAN-001 conversational Traditional Chinese prompt optimizer strategy C1",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.js"
+  }
+}
