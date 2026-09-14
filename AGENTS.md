@@ -30,3 +30,6 @@
 - 同一計畫步驟約 40 分鐘卡住（例如 npm install）→ 介入
 - 使用者回報卡住 → 立刻介入
 - 過程寫進 GitHub Issue；僅授權／重大取捨才找使用者
+
+## 清理失敗／卡死舊任務（協調者必做）
+介入或開新 Session 後，刪除已無交付價值的卡死／失敗舊 Jules Session（`DELETE /v1alpha/sessions/{id}`），Issue 留下舊→新對照；關閉無效 PR／廢分支。已完成且有效的 PR／Session 證據保留。
