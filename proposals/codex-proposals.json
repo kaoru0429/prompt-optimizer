@@ -1,0 +1,26 @@
+{
+  "origin": "gpt-codex",
+  "strategies": [
+    {
+      "id": "X1",
+      "name": "原生 DOM＋零建置 ESM＋JavaScript 模板",
+      "summary": "Vanilla HTML/CSS/browser ESM SPA with no framework or build. Expand engine is a pure function that keyword-matches a wish to JS module templates (generic / writing / planning); single uses a full-task template, chain uses three templates (clarify → draft → review). Node built-in tests import the engine; UI copy/mode is manual acceptance.",
+      "stack": "vanilla HTML/CSS/ESM, JS module templates, node:test, GitHub Pages static",
+      "differentiator": "Zero-build, no UI framework, executable JS templates, pure-function Node tests only."
+    },
+    {
+      "id": "X2",
+      "name": "Preact＋Vite＋JSON 宣告式模板",
+      "summary": "Preact component chat UI built with Vite. Templates and rules live in JSON and are interpreted (limited interpolation, no eval); loader validates required sections and chain step count. Vitest plus Preact Testing Library cover engine contracts and UI send/mode/copy; Pages path checked manually after build.",
+      "stack": "Preact, Vite, JSON declarative templates, Vitest, Preact Testing Library",
+      "differentiator": "Component framework + compile build + data-only templates + template-contract and component tests."
+    },
+    {
+      "id": "X3",
+      "name": "Lit Web Components＋零建置 ESM＋段落組裝引擎",
+      "summary": "Lit custom elements loaded as vendored ESM via local import maps (no runtime CDN). Engine does not pick a whole-task template; it detects a few explainable features and composes reusable sections (role, goal, original wish, constraints, format, quality check). Playwright drives Chromium/Firefox/WebKit plus in-browser engine import and clipboard/no-egress checks.",
+      "stack": "Lit, vendored ESM/import maps, section composer, Playwright (Chromium/Firefox/WebKit)",
+      "differentiator": "Web Components, zero-build with local vendor deps, fine-grained section assembly, cross-browser acceptance."
+    }
+  ]
+}
