@@ -1,6 +1,7 @@
 export function generateWriting(userMessage, mode) {
-  if (mode === 'single') {
+  if (mode === 'single' || (mode !== 'chain')) {
     return {
+      kind: 'single',
       title: '文案撰寫提示詞',
       body: `請扮演一位專業的文案撰寫專家。
 
@@ -16,6 +17,9 @@ ${userMessage}
     };
   } else if (mode === 'chain') {
     return {
+      kind: 'chain',
+      title: '文案撰寫提示詞 (提示詞鏈)',
+      body: '此為分步驟執行的提示詞鏈，請參考下方步驟。',
       steps: [
         {
           name: '釐清受眾與調性',
