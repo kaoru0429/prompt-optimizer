@@ -1,0 +1,25 @@
+{
+  "reviewer": "gpt-codex",
+  "reviewed_origin": "claude-code",
+  "candidates": [
+    "C1",
+    "C2"
+  ],
+  "finalist": "C2",
+  "pr": 4,
+  "suggestions": [
+    "Replace C2's failing npm test placeholder and scope Vitest to tests/unit/**/*.test.js, keeping Playwright separate.",
+    "Declare and pin a Node version supported by locked Vitest 5; document npm ci, test, build, and preview commands.",
+    "Extend E2E tests to click single and every step copy button, assert exact payloads, cover failures, and switch modes within one conversation.",
+    "Add CI for unit tests, production build, and browser smoke tests against built output under a project subpath; add Pages publication if desired.",
+    "Remove the missing absolute /vite.svg reference; add Traditional Chinese copy failure feedback, accessible input/mode semantics, and scroll-to-latest behavior."
+  ],
+  "p0": [],
+  "p1": [
+    "C1: server.cjs maps unvalidated request paths outside the static root and listens without a loopback restriction; confirmed with a mocked filesystem harness.",
+    "C1: engine.js uses user input as a String.replace replacement string, corrupting wishes containing $& or $$; reproduced directly.",
+    "C2: npm test is a hard-coded failing placeholder; exit 1 reproduced.",
+    "C2: bare vitest run is not scoped away from tests/e2e/chat-flow.spec.ts, risking Playwright runner conflicts during unit discovery; source finding, not runtime-reproduced here."
+  ],
+  "summary": "Select C2 (PR #4) for component/registry maintainability, both-mode browser test coverage, and relative-base static build configuration. C1's dependency-free tests pass, but it has reproduced input corruption, an unsafe local server, committed server.log, and an English UI error path. C2's independent ExpandResult probes pass; its default test command fails. Dependency installation was blocked by cache/network availability and reported a Vitest Node-version mismatch, so its committed unit/E2E suites and production build remain unverified. Process evidence excluded; no fixes or merge performed."
+}
