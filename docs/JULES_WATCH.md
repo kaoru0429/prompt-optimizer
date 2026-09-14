@@ -1,10 +1,8 @@
-# Jules 逾時介入
+# Jules 逾時介入與清理
 
-系統流程補丁（使用者要求）：**Jules 執行時間過長，協調者必須介入觀察。**
+系統流程補丁：**Jules 執行時間過長要介入觀察**；**失敗／卡死舊任務要清理**。
 
-詳見協調者 SoT `FLOW.md` 與 Skill [jules-t-15-check] / [vibe-coding-system-goal]。
-
-## 門檻（小白話）
+## 逾時門檻
 | 情況 | 要做什麼 |
 |---|---|
 | 派工後 15–20 分 | 抽查還在不在動 |
@@ -12,4 +10,10 @@
 | 同一步驟約 40 分（如裝套件） | 必須介入；可開新 Session |
 | 你說卡住 | 立刻介入 |
 
-介入：看卡在哪 → 下令解卡 → 必要時新 Session → 寫進 Issue。不用你去點 Jules 監工。
+## 清理失敗／卡死舊任務
+1. 舊 Session 已無交付價值（卡住、失敗、已被新 Session 取代）→ `DELETE https://jules.googleapis.com/v1alpha/sessions/{id}`  
+2. Issue 寫明：舊 id、刪除原因、替代 Session／PR  
+3. 廢分支／無效 PR 關閉或標勿合併；**已完成有效 PR 不刪**  
+4. 更新派工對照，勿再催已刪 Session  
+
+介入：看卡在哪 → 下令解卡 → 必要時新 Session → **刪舊卡死** → 寫進 Issue。不用你去點 Jules 監工。
