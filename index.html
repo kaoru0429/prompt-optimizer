@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>提示詞優化器</title>
+  <link rel="stylesheet" href="src/ui/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <h1>提示詞優化器</h1>
+      <div class="mode-toggle">
+        <label>
+          <input type="radio" name="mode" value="single" checked> 一則提示詞
+        </label>
+        <label>
+          <input type="radio" name="mode" value="chain"> 提示詞鏈
+        </label>
+      </div>
+    </header>
+
+    <main class="chat-container">
+      <div id="message-list" class="message-list">
+        <!-- Messages will be injected here -->
+        <div class="message system-message">
+          <div class="message-bubble">
+            歡迎！請告訴我您的需求，我會幫您轉換成可重用的提示詞。例如：「幫我寫一篇關於新產品上市的貼文」。
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="input-container">
+      <form id="chat-form">
+        <textarea id="user-input" placeholder="請輸入您的需求..." rows="2"></textarea>
+        <button type="submit" id="send-btn">送出</button>
+      </form>
+    </footer>
+  </div>
+
+  <template id="user-message-template">
+    <div class="message user-message">
+      <div class="message-bubble"></div>
+    </div>
+  </template>
+
+  <template id="ai-message-template">
+    <div class="message ai-message">
+      <div class="message-bubble">
+        <div class="explanation"></div>
+        <div class="artifact-container"></div>
+      </div>
+    </div>
+  </template>
+
+  <template id="single-artifact-template">
+    <div class="artifact single-artifact">
+      <h3 class="artifact-title"></h3>
+      <pre class="artifact-body"></pre>
+      <button class="copy-btn">複製內容</button>
+      <span class="copy-status"></span>
+    </div>
+  </template>
+
+  <template id="chain-artifact-template">
+    <div class="artifact chain-artifact">
+      <div class="chain-steps"></div>
+      <div class="chain-footer">
+        <button class="copy-all-btn">複製全部步驟</button>
+        <span class="copy-status"></span>
+      </div>
+    </div>
+  </template>
+
+  <template id="chain-step-template">
+    <div class="chain-step">
+      <h4 class="step-name"></h4>
+      <pre class="step-prompt"></pre>
+      <button class="copy-step-btn">複製此步驟</button>
+    </div>
+  </template>
+
+  <script type="module" src="src/ui/app.js"></script>
+</body>
+</html>
