@@ -1,6 +1,7 @@
 export function generateGeneric(userMessage, mode) {
-  if (mode === 'single') {
+  if (mode === 'single' || (mode !== 'chain')) {
     return {
+      kind: 'single',
       title: '通用任務提示詞',
       body: `請扮演一位專業的 AI 助理。
 
@@ -14,6 +15,9 @@ ${userMessage}
     };
   } else if (mode === 'chain') {
     return {
+      kind: 'chain',
+      title: '通用任務提示詞 (提示詞鏈)',
+      body: '此為分步驟執行的提示詞鏈，請參考下方步驟。',
       steps: [
         {
           name: '釐清需求',
